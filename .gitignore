@@ -1,0 +1,8 @@
+documentations/docs/
+__pycache__/
+.idea/
+.pytest_cache/
+.env
+*/__pycache__/
+database/
+reports/
