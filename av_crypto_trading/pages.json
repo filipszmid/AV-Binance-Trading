@@ -1,0 +1,32 @@
+{
+    "6906868e37d90d00367c87fbd85bc1ca": {
+        "page_script_hash": "6906868e37d90d00367c87fbd85bc1ca",
+        "page_name": "forecasting",
+        "icon": "",
+        "script_path": "/home/lorbi/Desktop/P-AV-Binance-Trading/frontend/pages/forecasting.py"
+    },
+    "a2497b4ac1cc1379eadfdf6698d97670": {
+        "page_script_hash": "a2497b4ac1cc1379eadfdf6698d97670",
+        "page_name": "home",
+        "icon": "",
+        "script_path": "/home/lorbi/Desktop/P-AV-Binance-Trading/frontend/pages/home.py"
+    },
+    "f220a3f9e29bf9c207b760275d3d7daf": {
+        "page_script_hash": "f220a3f9e29bf9c207b760275d3d7daf",
+        "page_name": "live_performing_crypto_view",
+        "icon": "",
+        "script_path": "/home/lorbi/Desktop/P-AV-Binance-Trading/frontend/pages/live performing crypto view.py"
+    },
+    "504a5ff788d998971d35a186a7badc7e": {
+        "page_script_hash": "504a5ff788d998971d35a186a7badc7e",
+        "page_name": "logout",
+        "icon": "",
+        "script_path": "/home/lorbi/Desktop/P-AV-Binance-Trading/frontend/pages/logout.py"
+    },
+    "38a8a4a5931c2129222815c99d46221a": {
+        "page_script_hash": "38a8a4a5931c2129222815c99d46221a",
+        "page_name": "tweets",
+        "icon": "",
+        "script_path": "/home/lorbi/Desktop/P-AV-Binance-Trading/frontend/pages/tweets.py"
+    }
+}

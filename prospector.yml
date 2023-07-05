@@ -1,0 +1,42 @@
+doc-warnings: true
+ignore-paths:
+- .venv
+- setup.py
+- WIP
+max-line-length: 120
+member-warnings: false
+output-format: grouped
+strictness: low
+test-warnings: true
+
+bandit:
+  run: false
+
+mypy:
+  run: false
+  options:
+    disallow:
+    - any-explicit
+    - incomplete-defs
+    - untyped-defs
+
+pycodestyle:
+  run: true
+
+pydocstyle:
+  run: false
+  disable:
+  - D203
+  - D213
+  - E722
+
+pylint:
+  run: false
+  disable:
+  - too-few-public-methods
+  - too-many-arguments
+  - too-many-instance-attributes
+  - too-many-locals
+  - import-outside-toplevel
+  load-plugins:
+  - pylint.extensions.docparams

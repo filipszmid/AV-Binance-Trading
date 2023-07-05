@@ -1,8 +1,9 @@
-documentations/docs/
+database/documentation/docs/
 __pycache__/
 .idea/
 .pytest_cache/
 .env
 */__pycache__/
-database/
+database/*.db
 reports/
+WIP/
