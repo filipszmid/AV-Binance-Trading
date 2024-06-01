@@ -1,0 +1,2 @@
+data/bitstamp_BTC_USD_1min_2012_2021.csv filter=lfs diff=lfs merge=lfs -text
+data/BTC_USD_kaggle_1min.csv filter=lfs diff=lfs merge=lfs -text

@@ -1,8 +1,15 @@
-documentations/docs/
+database/documentation/docs/
 __pycache__/
 .idea/
 .pytest_cache/
 .env
 */__pycache__/
-database/
+database/*.db
 reports/
+WIP/
+examples/RL/mlruns
+AV_CRYPTO_TRADING.db
+pages.json
+examples/RL/fig/*
+examples/RL/stocks_dqn_deploy*/
+examples/RL/stocks_dqn_seed0*/
