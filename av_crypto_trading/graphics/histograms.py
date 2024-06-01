@@ -11,6 +11,7 @@ from av_crypto_trading.twitter.utils import clean_non_letter
 pip install -U spacy
 python -m spacy download en_core_web_sm
 https://stackoverflow.com/questions/49964028/spacy-oserror-cant-find-model-en"""
+#: TODO poetry doesn't load this module uncomment
 nlp = spacy.load("en_core_web_sm")
 FONT_SIZE = 20
 
