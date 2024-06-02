@@ -7,9 +7,9 @@ __pycache__/
 database/*.db
 reports/
 WIP/
-examples/RL/mlruns
+examples/reinforcement_learning/mlruns
 AV_CRYPTO_TRADING.db
 pages.json
-examples/RL/fig/*
-examples/RL/stocks_dqn_deploy*/
-examples/RL/stocks_dqn_seed0*/
+examples/reinforcement_learning/fig/*
+examples/reinforcement_learning/stocks_dqn_deploy*/
+examples/reinforcement_learning/stocks_dqn_seed0*/
