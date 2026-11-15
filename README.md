@@ -295,7 +295,7 @@ The Slack bot allows you to manage trading bots and view their status directly f
 *   **Reinforcement Learning (RL):**
     You only need to specify the run folder name and the checkpoint filename.
     ```
-    trade rl run_20260302-142413_mythland-dqn-v2-replica-nayaur-sl-tp-1%-reward-100x-drawdawn-penalty-0.2X100 iteration_30000.pth.tar 10 BTCUSDT 500
+    trade rl {run_name} {checkpoint_filename} 10 BTCUSDT 500
     ```
 *   **Statistical Strategy:**
     ```
@@ -442,11 +442,11 @@ Top used commands for poetry package manager:
 ```poetry update```  - update version  
 ```poetry install```  - install poetry  
 ```poetry run binance_trading ``` - main command  
-```poetry env use /home/lorbi/.cache/pypoetry/virtualenvs/av-crypto-trading-84RDaCA4-py3.9/bin/python```  - use new python  
+```poetry env use /path/to/your/virtualenv/bin/python```  - use new python  
 ``` poetry lock --no-update``` - update lock file after chaning pyproject.toml
 ```poetry self update``` - update the version of poetry  
 my interpreter:
-```/home/lorbi/.cache/pypoetry/virtualenvs/av-crypto-trading-q9kMY0JF-py3.9/bin/python```
+```/path/to/your/virtualenv/bin/python```
 
 ## Local MLflow Experiment Tracking
 
@@ -625,30 +625,30 @@ echo "YOUR_GITHUB_PAT" | docker login ghcr.io -u YOUR_GITHUB_USERNAME --password
 ```
 
 ### 2. Build and Push (Local Machine)
-Build the image and push it to GHCR. By default, the `Makefile` assumes your GitHub username is `lorbi321`. If it's different, override it:
+Build the image and push it to GHCR. Set `GITHUB_USERNAME` to your GitHub username:
 
 ```bash
-make build-ghcr GITHUB_USERNAME=lorbi321
-make push-ghcr GITHUB_USERNAME=lorbi321
+make build-ghcr GITHUB_USERNAME={github_user_name}
+make push-ghcr GITHUB_USERNAME={github_user_name}
 ```
 
 ### 3. Pull and Run (Remote Instance)
 On your remote instance (e.g., GCP), pull the image:
 
 ```bash
-make pull-ghcr GITHUB_USERNAME=lorbi321
+make pull-ghcr GITHUB_USERNAME={github_user_name}
 ```
 
 **Note:** If you want `docker-compose.yml` to use this image, you can tag it to match the compose file:
 ```bash
-docker tag ghcr.io/lorbi321/ai-trader:latest av_trader_image:latest
+docker tag ghcr.io/{github_user_name}/ai-trader:latest av_trader_image:latest
 docker compose up -d
 ```
 
 ### Deployment to NAS:
 ```
-ssh lorbi231@192.168.50.123
-cd /share/WORK/Desktop/ALL-AV-BINANCE-TRADING/P-AV-Binance-Trading
+ssh {nas_user_name}@{nas_ip_address}
+cd {nas_project_directory}
 git pull
 make stop
 make build
@@ -657,23 +657,23 @@ make run
 ### Deployment to GCP:
 ```
 sudo apt install google-cloud-sdk
-gcloud config set project swift-hope-335614
+gcloud config set project {gcp_project_id}
 gcloud compute instances list
-gcloud compute ssh lorbi@av-v-100 --zone=us-central1-c
+gcloud compute ssh {gcp_user_name}@{gcp_instance_name} --zone={gcp_zone}
 # install git, generate ssh key, add to deploy keys
 git clone 
 sudo apt install build-essential -y
 # install docker
 make build
 # clone the model
-make deploy_model CHECKPOINT="reinforcement_learning/run_20250726-161918_nayaur-dqn-v2-replica-tenla-8-evals-buffer-0.5mln-intervals-eval/ckpt/iteration_410000.pth.tar"
+make deploy_model CHECKPOINT="reinforcement_learning/{run_name}/ckpt/{checkpoint_filename}"
 ```
 
 ### RAM profiling
 ```
 poetry add filprofiler
 poetry run fil-profile run -m av_crypto_trading.reinforcement_learning.train
-scp -r lorbi@192.168.50.172:/home/lorbi/Desktop/ALL-AV-Binance-Trading/P-AV-Binance-Trading/fil-result ./fil-result-report
+scp -r {remote_user_name}@{remote_ip_address}:{remote_project_directory}/fil-result ./fil-result-report
 ```
 
 ```
@@ -695,12 +695,12 @@ http://localhost:11235/
 ```
 
 ```
-scp lorbi@192.168.50.172:/home/lorbi/Desktop/ALL-AV-Binance-Trading/P-AV-Binance-Trading/memray_report.bin .        
+scp {remote_user_name}@{remote_ip_address}:{remote_project_directory}/memray_report.bin .        
 poetry run python3 -m memray run --aggregate -o memray_report.bin av_crypto_trading/reinforcement_learning/train.py       
 poetry run python3 -m memray flamegraph memray_report-msi.bin
-ssh -X lorbi@192.168.50.172
+ssh -X {remote_user_name}@{remote_ip_address}
 nautilus .
-sshfs lorbi@192.168.50.172:/home /home/lorbi/Desktop/ubuntu-desktop -o allow_other
+sshfs {remote_user_name}@{remote_ip_address}:{remote_home_directory} {local_mount_directory} -o allow_other
 ```
 
 
